@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HelloVuejs</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{message}}</h1>
+        <h2>{{name}}</h2>
+    </div>
+    <div>{{message}}</div>
+    <!-- import vuejs -->
+    <script src="../js/vue.js"></script>
+    <script>
+        /* 
+         let：变量
+         const：常量
+        */
+        //声明式编程
+        const app = new Vue({
+            //用于挂载要管理的元素
+            el: '#app',
+            //定义数据
+            data: {
+                message: '你好啊，李银河!',
+                name: 'coderwhy'
+            }
+        })
+
+        /* 命令式编程 */
+        //1.创建div元素，设置id属性
+        //2.定义一个变量叫message
+        //3.将message变量放在前端的div元素中显示
+        //4.修改message的数据：今天天气不错啊！
+        //5.将修改后的message数据再次替换到div元素
+    </script>
+</body>
+</html>
