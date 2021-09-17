@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind的基本使用</title>
+</head>
+
+<body>
+    <div id ="app">
+        <!-- 错误的写法：这里使用插值表达式是无效的 -->
+        <!-- <img src="{{imgURL}}" alt=""> -->
+        <!-- v-bind动态绑定：会把imgURL当成一个变量而不是之前的字符串 -->
+        <img v-bind:src="imgURL" alt="">
+        <!-- v-bind语法糖 -->
+        <a :href="aHref">百度一下</a>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+     //创建Vue实例,得到 ViewModel
+     const app = new Vue({
+        el: '#app',
+        data: { 
+            message:'你好啊!',
+            imgURL: "https://img0.baidu.com/it/u=271824295,2501038368&fm=26&fmt=auto",
+            aHref: 'http://www.baidu.com'
+        },
+     });
+    </script>
+</body>
+
+</html>

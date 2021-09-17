@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .active{
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id ="app">
+        <ul>
+            <li v-for="(value, index) in datalist"
+                :class="{active:cuerys == index}"
+                @click="bander(index)"
+                :title='value'>{{index+1}}--{{value}}</li>
+        </ul>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+     //创建Vue实例,得到 ViewModel
+     const app = new Vue({
+        el: '#app',
+        data: {
+            cuerys: 0,
+            datalist: ['火影忍者', '海贼王', '死神', '银魂']
+        },
+        methods: {
+            bander:function(obj){
+                this.cuerys = obj;
+            }
+        }
+     });
+    </script>
+</body>
+
+</html>
