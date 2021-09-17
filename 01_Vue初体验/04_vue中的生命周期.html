@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">{{counter}}</div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const obj = {
+           counter: 0
+        }
+
+        const app = new Vue({
+            el: '#app',
+            data: obj,
+            methods: {
+
+            },
+            /* 生命周期函数，vue实现会自动执行，不用我们手动操作 */
+            created: function(){
+                console.log('created');
+            },
+            mounted: function(){
+                console.log('mounted');
+            }
+        });
+
+    </script>
+</body>
+</html>
