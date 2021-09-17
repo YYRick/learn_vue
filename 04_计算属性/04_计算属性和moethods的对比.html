@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id ="app">
+        <!-- 通过methods -->
+        <h2>{{getFullName()}}</h2>
+        <h2>{{getFullName()}}</h2>
+        <h2>{{getFullName()}}</h2>
+        <h2>{{getFullName()}}</h2>
+        <h2>{{getFullName()}}</h2>
+        <!-- 通过计算属性 -->
+        <h2>{{fullName}}</h2>
+        <h2>{{fullName}}</h2>
+        <h2>{{fullName}}</h2>
+        <h2>{{fullName}}</h2>
+        <h2>{{fullName}}</h2>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+     //创建Vue实例,得到 ViewModel
+     const app = new Vue({
+        el: '#app',
+        data: {
+           firstName: '李白',
+           lastName: '杜甫'
+        },
+        methods: {
+           getFullName: function(){
+              console.log('哈哈哈');
+              return this.firstName + " " + this.lastName;
+           }
+        },
+        computed: {
+           fullName: function(){
+              console.log('哈哈哈');
+              return this.firstName + " " + this.lastName;
+           }
+        }
+     });
+    </script>
+</body>
+
+</html>

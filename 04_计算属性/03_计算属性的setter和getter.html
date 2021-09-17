@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id ="app">
+        {{fullName}}
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+     //创建Vue实例,得到 ViewModel
+     const app = new Vue({
+        el: '#app',
+        data: {
+           firstName: '李白',
+           lastName: '杜甫'
+        },
+        computed: {
+           //=>这里其实是计算属性的简写形式
+           /* fullName: function(){
+                return this.firstName + " " + this.lastName;
+           } */
+           //=>计算属性的完整写法如下
+           fullName: {
+               //=> 我们一般只会实现get方法，不会实现set方法，因为我们不希望别人修改，所以设置成只读属性
+               get: function(){
+                   return this.firstName + " " + this.lastName;
+               }
+           }
+        }
+        
+        
+     });
+    </script>
+</body>
+
+</html>
