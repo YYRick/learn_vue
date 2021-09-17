@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id ="app">
+        <img v-bind:src="imgURL" alt="">
+        <h2 v-html="aURL"></h2>
+        <h2 v-text="aURL"></h2>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+     //创建Vue实例,得到 ViewModel
+     const app = new Vue({
+        el: '#app',
+        data: {
+           imgURL: 'https://img0.baidu.com/it/u=4043408769,248937891&fm=26&fmt=auto',
+           aURL:'<a href="http://www.baidu.com">百度一下</>'
+        },
+     });
+    </script>
+</body>
+
+</html>

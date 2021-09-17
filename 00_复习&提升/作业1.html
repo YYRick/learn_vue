@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .active{
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id ="app">
+       <ul>
+           <li v-for="(item, index) in dataLists"
+               :class="{active: count == index}"
+               @click="btnClick(index)">{{index + 1}}--{{item}}</li>
+       </ul>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+     //创建Vue实例,得到 ViewModel
+     const app = new Vue({
+        el: '#app',
+        data: {
+          count: 0,
+          dataLists: ['火影忍者', '海贼王', '死神', '银魂']
+        },
+        methods: {
+            btnClick: function(index){
+               return this.count = index;
+            }
+        }
+     });
+    </script>
+</body>
+
+</html>

@@ -3,27 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <style>
+        .active{
+           color: red;
+        }
+    </style>
 </head>
 
 <body>
     <div id ="app">
-        <h2>{{message}}</h2>
-        <!-- v-once：数据更改时，视图不会随之更改 -->
-        <h2 v-once>{{message}}</h2>
+        <h2 :class="{active: isActive}">{{message}}</h2>
         <button @click="btnClick">按钮</button>
     </div>
 
     <script src="../js/vue.js"></script>
     <script>
+     //创建Vue实例,得到 ViewModel
      const app = new Vue({
         el: '#app',
-        data: {
-           message:'你好啊!'
+        data: { 
+            message:'你好啊!',
+            isActive: true
         },
         methods: {
-           btnClick: function(){
-              this.message = '哈哈哈!!!'
-           }
+            btnClick: function(){
+               return this.isActive = !this.isActive;
+            }
         }
      });
     </script>
