@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id ="app">
+        <h2>{{totalPrice}}</h2>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+     //创建Vue实例,得到 ViewModel
+     const app = new Vue({
+        el: '#app',
+        data: {
+          books: [
+            {id: 01, name: 'JavaScript高级编程设置(第四版)', price: 119},
+            {id: 02, name: '你不知道的JavaScript', price: 105},
+            {id: 03, name: '深入理解ES6', price: 89},
+            {id: 04, name: 'JavaScript语言精粹', price: 53}
+          ]
+        },
+        computed: {
+            totalPrice: function(){
+                let result = 0,
+                    i = 0;
+                for(; i < this.books.length; i++){
+                    result += this.books[i].price;
+                }
+                return result;
+            }
+        }
+     });
+    </script>
+</body>
+
+</html>
