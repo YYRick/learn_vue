@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id ="app">
+        <!-- 对于v-on来说：没有参数时调用的方法后续括号可以省略不写 -->
+        <!-- 下面这两个的效果是一样的 -->
+        <button @click="btn1Click()">按钮1</button>
+        <button @click="btn1Click">按钮2</button>
+        <!-- 
+            在使用v-on时，如果方法本身需要一个参数，但是我们在写方法
+            的时候省略了括号不写，Vue会默认把浏览器产生的event事件对象作为参数传入方法中
+         -->
+        <button @click="btn2Click">按钮3</button>
+        <!-- 使用v-on时，如果方法中传入的abc没有引号，vue会把它当成变量来进行处理 -->
+        <!-- 使用v-on, 当方法中有多个参数时，可以通过$event获取浏览器产生的event事件对象 -->
+        <button @click="btn3Click(abc, $event)">按钮4</button>
+        <button @click="btn3Click">按钮5</button>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+     
+     const app = new Vue({
+        el: '#app',
+        data: {
+          message:'你好啊!',
+          abc: 123
+        },
+        methods: {
+            btn1Click(){
+                console.log('btn1Click');
+            },
+            btn2Click(event){
+                console.log(event);
+            },
+            btn3Click(abc, event){
+                console.log('------------',abc, '--------------------',event);
+            }
+        }
+     });
+    </script>
+</body>
+
+</html>

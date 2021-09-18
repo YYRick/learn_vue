@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id ="app">
+        <h2>{{counter}}</h2>
+        <button @click="increment">+</button>
+        <button @click='decrement'>-</button>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+     //创建Vue实例,得到 ViewModel
+     const app = new Vue({
+        el: '#app',
+        data: {
+            counter: 0
+        },
+        methods: {
+            /* ES6的对象增强写法 */
+            increment(){
+               this.counter++;
+            },
+            decrement(){
+               this.counter--;
+            }
+        }
+     });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id ="app">
+       <div @click='divClick'>
+           aaaaaaaaaaaaa
+           <!-- 想要阻止谁的事件冒泡，就往谁身上加.stop -->
+           <!-- .stop就是v-on的修饰符之一，用于阻止事件冒泡 -->
+           <button @click.stop="btnClick">按钮</button>
+       </div>
+       <!-- .prevent修饰符：阻止默认事件 -->
+       <form action="http://www.baidu.com">
+            <!--我们知道input表单有个默认事件，点击提交时会把数据提交到默认页面如设置的百度 -->
+            <input type="submit" value="提交1" @click='submitClick'>
+            <input type="submit" value="提交2" @click.prevent='submitClick'>
+       </form>
+
+       <!--
+           keyup：键盘点击事件
+           .enter：只有回车时才会执行方法
+           .xxx：只有按下xxx时才会触发方法
+         -->
+       <input type="text" @keyup="keyup">
+       <input type="text" @keyup.enter="keyup">
+
+
+       <!-- .once：只执行一次后续就不会在执行了 -->
+       <button @click.once="btn2Click">按钮2</button>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+     //创建Vue实例,得到 ViewModel
+     const app = new Vue({
+        el: '#app',
+        data: {message:'你好啊!'},
+        methods: {
+            btnClick(){
+                console.log('btnClick');
+            },
+            divClick(){
+                console.log('divClick');
+            },
+            submitClick(){
+                console.log('submitClick');
+            },
+            keyup(){
+                console.log('keyup');
+            },
+            btn2Click(){
+                console.log('btn2Click');
+            }
+        }
+     });
+    </script>
+</body>
+
+</html>
