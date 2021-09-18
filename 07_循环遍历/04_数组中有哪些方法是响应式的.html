@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id ="app">
+        <ul>
+            <!-- 绑定key：提高性能 
+                 注意：要保证key的唯一性
+            -->
+            <li v-for='item in letters'>{{item}}</li>
+        </ul>
+        <button @click="btnClick">按钮</button>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+     //创建Vue实例,得到 ViewModel
+     const app = new Vue({
+        el: '#app',
+        data: {
+           /* letters: ['A', 'B', 'C', 'D', 'E'] */
+           letters:[2 , 4, 3, 6, 1, 9]
+        },
+        methods: {
+           btnClick(){
+             /* 可以响应式的数组方法如下 */
+             /* this.letters.push('aaa'); */
+             //pop：删除最后一个数组元素
+             //  this.letters.pop();
+
+             //shift：删除第一个数组元素
+             //  this.letters.shift();
+
+             //unshift：在数组最开头添加元素
+             //  this.letters.unshift('111');
+
+             //splice：删除元素/替换元素/插入元素
+             //第一个元素：从索引几开始
+             //删除元素：第二个参数传入你要删除几个元素，没传就就删除后面所有的元素
+             //替换元素：第二个参数表示要替换几个元素，后续传入的参数则是用于替换之前的元素
+             //插入元素：第二个参数写0，后面传入的参数代表要插入的元素
+             //  this.letters.splice(1, 2, 'm', 'n');
+             /* this.letters.splice(1, 0, 'm', 'n'); */
+
+
+             //sort排序
+             /* this.letters.sort((a, b)=>{
+                 //倒序
+                 //  return b - a;
+                 //升序
+                 return a - b;
+             });
+             */
+
+             //反转
+            //  this.letters.reverse();
+
+             //注意：通过索引修改数组的中的元素不是响应式的
+             /* this.letters[0] = 'bbbbb';  */
+             //通过vue实现的set方法可以实现通过索引修改数组中的元素，并且他是响应式的
+             //set(要修改的对象，索引值，修改后的值)
+             Vue.set(this.letters, 0, 'bbbb');
+           }
+        }
+     });
+    </script>
+</body>
+
+</html>

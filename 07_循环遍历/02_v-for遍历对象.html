@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id ="app">
+        <!-- 1.使用v-for遍历对象时，如果只是获取的一个值，那么获取的是value -->
+        <ul>
+            <li v-for="item in info">{{item}}</li>
+        </ul>
+        <!-- 
+            使用v-for遍历对象时
+              + 第一个参数获取的是属性值
+              + 第二个参数获取的是属性名
+              + 第三个参数获取的是索引值
+         -->
+        <ul>
+            <li v-for="(value, key, index) in info">{{index}}--{{key}}--{{value}}</li>
+        </ul>
+        <!--  -->
+        <ul>
+            <li v-for="(value, key, index) in info">{{value}}--{{key}}-{{index}}</li>
+        </ul>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+     //创建Vue实例,得到 ViewModel
+     const app = new Vue({
+        el: '#app',
+        data: {
+            info: {
+                name: 'coderwhy',
+                age: 20,
+                heigh: 1.88
+            }
+        },
+     });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id ="app">
+        <ul>
+            <!-- 绑定key：提高性能 
+                 注意：要保证key的唯一性
+            -->
+            <li v-for='item in letters' :key='item'>{{item}}</li>
+        </ul>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+     //创建Vue实例,得到 ViewModel
+     const app = new Vue({
+        el: '#app',
+        data: {
+           letters: ['A', 'B', 'C', 'D', 'E']
+        },
+     });
+    </script>
+</body>
+
+</html>
