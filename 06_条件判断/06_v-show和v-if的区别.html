@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id ="app">
+        <!-- v-if控制元素的显示或者隐藏，是通过直接删除DOM或者重新创建一个DOM元素实现的 -->
+        <!-- 只切换一次时，使用v-if -->
+        <h2 v-if="isShow">{{message}}</h2>
+        <!-- 而v-show则是通过给元素添加display: none实现的 -->
+        <!-- 当显示隐藏切换很频繁的时候使用v-show -->
+        <h2 v-show="isShow">{{message}}</h2>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+     //创建Vue实例,得到 ViewModel
+     const app = new Vue({
+        el: '#app',
+        data: {
+            message:'你好啊!',
+            isShow: true
+        },
+     });
+    </script>
+</body>
+
+</html>

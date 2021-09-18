@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id ="app">
+        <!-- 不推荐这样写，不如直接写个计算属性 -->
+        <h2 v-if='score>=90'>优秀</h2>
+        <h2 v-else-if='score>=80'>良好</h2>
+        <h2 v-else-if='score>=70'>中等</h2>
+        <h2 v-else-if='score>=60'>及格</h2>
+        <h2 v-else>不及格</h2>
+
+
+        <h2>{{result}}</h2>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+     //创建Vue实例,得到 ViewModel
+     const app = new Vue({
+        el: '#app',
+        data: {
+            score: 90
+        },
+        computed: {
+            result(){
+                let showMessage = '';
+                if(this.score >= 90){
+                    showMessage = '优秀';
+                }else if(this.score >= 80){
+                    showMessage = '良好';
+                }else if(this.score >= 70){
+                    showMessage = '中等';
+                }else if(this.score >= 60){
+                    showMessage = '及格';
+                }else{
+                    showMessage = '不及格';
+                }
+                return showMessage;
+            }
+        }
+     });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id ="app">
+        <!-- 
+           v-if：通过判断布尔值可以操作显示或者删除
+           注意：v-if值为false不是将元素隐藏了而是将整个元素删除了
+         -->
+        <h2 v-if='isShow'>{{message}}</h2>
+        <!-- v-else：和v-if结合使用，v-if为true时，v-else的元素不显示；为false时，显示 -->
+        <h2 v-else>当isShow为false时，显示我</h2>
+        <button @click="btnClick">按钮</button>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+     //创建Vue实例,得到 ViewModel
+     const app = new Vue({
+        el: '#app',
+        data: {
+            message:'你好啊!',
+            isShow: true
+        },
+        methods: {
+            btnClick(){
+                this.isShow = !this.isShow;
+            }
+        }
+     });
+    </script>
+</body>
+
+</html>
