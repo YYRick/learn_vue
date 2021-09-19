@@ -37,5 +37,37 @@ const app = new Vue({
 		showPrice(price){
 			return '￥' + price.toFixed(2)
 		}
+	},
+	methods: {
+		/* 通过传入的index来判断是第几个按钮，从而对其数量进行更改 */
+		decrement(index){
+           this.books[index].count--;
+		},
+		increment(index){
+		   this.books[index].count++;
+		},
+		removebtnClick(index){
+		   this.books.splice(index, 1);
+		}
+	},
+	computed: {
+		totalPrice(){
+			let totalPrice = 0,
+			    i = 0;
+			/* for(;i < this.books.length; i++){
+				totalPrice += this.books[i].price * this.books[i].count;
+			} */
+            
+			/* for(i in this.books){
+				// console.log(i);
+				totalPrice += this.books[i].price * this.books[i].count;
+			}  */
+
+			for(let item of this.books){
+				totalPrice += item.price * item.count
+			}
+			
+			return totalPrice;
+		}
 	}
 })

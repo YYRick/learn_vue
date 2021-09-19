@@ -7,32 +7,42 @@
 </head>
 <body>
     <div id="app">
-        <table>
-            <thead>
-                <tr>
-                    <th>编号</th>
-                    <th>书籍名称</th>
-                    <th>出版日期</th>
-                    <th>价格</th>
-                    <th>购买数量</th>
-                    <th>操作</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for='item in books'>
-                    <td>{{item.id}}</td>
-                    <td>{{item.name}}</td>
-                    <td>{{item.date}}</td>
-                    <td>{{item.price | showPrice}}</td>
-                    <td>
-                        <button>-</button>
-                        {{item.count}}
-                        <button>+</button>
-                    </td>
-                    <td><button>移除</button></td>
-                </tr>
-            </tbody>
-        </table>
+        <div v-if="books.length">
+            <table>
+                <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>书籍名称</th>
+                        <th>出版日期</th>
+                        <th>价格</th>
+                        <th>购买数量</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for='(item, index) in books'>
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.date}}</td>
+                        <td>{{item.price | showPrice}}</td>
+                        <td>
+                            <!-- 
+                              disabled是一个属性，能使按钮无法被点击
+                              通过v-bind动态添加disabled属性，
+                              来实现当数量为1之后就不能再减了，
+                              因为书本的数量不可能为负数
+                             -->
+                            <button @click="decrement(index)" :disabled="item.count <= 1">-</button>
+                            {{item.count}}
+                            <button @click="increment(index)">+</button>
+                        </td>
+                        <td><button @click="removebtnClick(index)">移除</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>总价格: {{totalPrice | showPrice}}</h2>
+        </div>
+        <h2 v-else>购物车为空</h2>
     </div>
     <script src="../js/vue.js"></script>
     <script src="main.js"></script>
