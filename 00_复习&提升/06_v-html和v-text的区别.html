@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>邂逅vue | v-html和v-text的区别</title>
+</head>
+
+<body>
+    <div id ="app">
+        <!--
+            v-text不能识别html，
+            而v-html可以识别html 
+        -->
+        <h2 v-text="imgURL">，哈哈哈</h2>
+        <h2 v-html="imgURL">，哈哈哈</h2>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+     //创建Vue实例,得到 ViewModel
+     const app = new Vue({
+        el: '#app',
+        data: {
+            imgURL: '<a href="http://www.baidu.com">百度一下</a>'
+        },
+     });
+    </script>
+</body>
+
+</html>

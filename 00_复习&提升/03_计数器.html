@@ -8,7 +8,8 @@
 <body>
     <div id ="app">
         <h2>当前计数：{{counter}}</h2>
-        <button @click="add">+</button>
+        <!-- v-on 简写  @ -->
+        <button v-on:click="add">+</button>
         <button @click="sub">-</button>
     </div>
 
@@ -21,10 +22,10 @@
            counter: 0
         },
         methods:{
-           add: function(){
+           add(){
                return this.counter++;
            },
-           sub: function(){
+           sub(){
                return this.counter--;
            }
         }

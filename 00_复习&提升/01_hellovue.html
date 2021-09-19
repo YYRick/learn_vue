@@ -2,22 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>邂逅Vue | helloVue</title>
 </head>
 
 <body>
+    <!-- view -->
     <div id ="app">
         <h2>{{message}}</h2>
-        <h2 v-pre>{{message}}</h2>
     </div>
 
     <script src="../js/vue.js"></script>
     <script>
+     //Model
+     const obj = {
+         message:'你好啊!'
+     };
      //创建Vue实例,得到 ViewModel
      const app = new Vue({
+        //设置要挂载的元素
         el: '#app',
-        data: {message:'你好啊!'},
+        //定义数据
+        data: obj
      });
+     //响应式：数据更改，视图也会跟着自动修改
     </script>
 </body>
 

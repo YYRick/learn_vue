@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>列表展示</title>
 </head>
 
 <body>
+    <!-- view视图层 -->
     <div id ="app">
         <ul>
-            <li v-for="item in dataList">{{item}}</li>
+            <li v-for="(item, index) in dataLists">{{index}}--{{item}}</li>
         </ul>
     </div>
 
@@ -18,8 +19,9 @@
      const app = new Vue({
         el: '#app',
         data: {
-            dataList: ['李白', '杜甫', '苏东坡', '辛弃疾', '文天祥']
-        },
+             //Model
+            dataLists: ['李白', '杜甫', '苏东坡', '辛弃疾', '文天祥']
+        }
      });
     </script>
 </body>

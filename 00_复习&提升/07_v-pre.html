@@ -6,21 +6,18 @@
 </head>
 
 <body>
-    <!-- view -->
     <div id ="app">
         <h2>{{message}}</h2>
+        <!-- 使用v-pre指令，只会显示原本的样子 -->
+        <h2 v-pre>{{message}}</h2>
     </div>
 
     <script src="../js/vue.js"></script>
     <script>
-     //Model
-     const obj = {
-         message:'你好啊!'
-     };
      //创建Vue实例,得到 ViewModel
      const app = new Vue({
         el: '#app',
-        data: obj
+        data: {message:'你好啊!'},
      });
     </script>
 </body>
