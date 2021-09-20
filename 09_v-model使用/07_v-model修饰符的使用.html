@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id ="app">
+        <!-- 1.修饰符：lazy  起到防抖的效果 -->
+        <input type="text" v-model.lazy='message'>
+        <h2>{{message}}</h2>
+
+
+        <!-- 2.修饰符：number 起到把v-model传入的值转成数字类型的效果
+             因为v-model传入的值默认是字符串类型，但是有时候我们需要进行运算，就需要它是数字类型
+        -->
+        <input type="number" v-model.number='age'>
+        <h2>{{age}}---{{typeof age}}</h2>
+
+
+        <!-- 3.修饰符：trim -->
+        <input type="text" v-model.trim='name'>
+        <h2>您输入的名字：{{name}}</h2>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+     //创建Vue实例,得到 ViewModel
+     const app = new Vue({
+        el: '#app',
+        data: {
+            message:'你好啊!',
+            age: 0,
+            name: ''
+        },
+     });
+    </script>
+</body>
+
+</html>
