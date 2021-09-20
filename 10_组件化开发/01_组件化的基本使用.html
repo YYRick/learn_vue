@@ -12,13 +12,18 @@
        <my-cpn></my-cpn>
        <my-cpn></my-cpn>
        <my-cpn></my-cpn>
+
+       <!-- 使用HTML标签包裹组件也是可以的 -->
+       <div>
+           <my-cpn></my-cpn>
+       </div>
     </div>
 
     <script src="../js/vue.js"></script>
     <script>
      //1.创建组件构造器对象
      const cpnC = Vue.extend({
-         //模版
+         //模板
          template: `
             <div>
               <h2>我是标题</h2>
