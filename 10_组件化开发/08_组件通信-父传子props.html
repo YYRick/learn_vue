@@ -26,7 +26,19 @@
      //1.创建一个组件
      const cpn = {
          template: '#cpn',
-         props: ['cmovies', 'cmessage'],
+         /* props: ['cmovies', 'cmessage'], */
+         //props还可以是一个对象类型
+         props:{
+            //并且可以对其做类型限定
+            cmovies: Array,
+            cmessage: {
+                type: string,
+                //设置默认值
+                default: '张三',
+                //必传的值
+                required: true
+            }
+         },
          data(){
              return{
 

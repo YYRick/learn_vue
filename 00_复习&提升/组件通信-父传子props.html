@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 3.使用组件 -->
+    <div id ="app">
+        <my-cpn :cmoives="moives" :cmessage="message"></my-cpn>
+    </div>
+
+    <!-- 组件模板 -->
+    <template id="cpn">
+        <div>
+            <ul>
+                <li v-for="item in cmoives">{{item}}</li>
+            </ul>
+            <h2>{{cmessage}}</h2>
+        </div>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+     //1.创建一个组件
+     const cpn = {
+         template:'#cpn',
+         props:['cmoives', 'cmessage']
+     }
+     //创建Vue实例,得到 ViewModel
+     const app = new Vue({
+        el: '#app',
+        data: {
+            message:'你好啊!',
+            moives: ['火影忍者', '海贼王', '死神', '银魂']
+        },
+        //2.注册局部组件
+        components: {
+            'my-cpn': cpn
+        }
+     });
+    </script>
+</body>
+
+</html>

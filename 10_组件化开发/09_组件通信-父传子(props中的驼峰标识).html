@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 3.使用组件 -->
+    <div id ="app">
+       <my-cpn :c-info="info"></my-cpn>
+    </div>
+    
+    <!-- 组件模板 -->
+    <template id="cpn">
+        <div>
+          <h2>name--{{cInfo.name}}</h2>
+          <h2>age--{{cInfo.age}}</h2>
+          <h2>height--{{cInfo.height}}</h2>
+        </div>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+     //1.创建一个组件
+     const cpn = {
+         template:'#cpn',
+         props:{
+           cInfo:{
+               type: Object,
+               //如果type是个对象或者数组，
+               //默认值必须是以函数的形式书写
+               default(){
+                   return {}
+               }
+           }
+         }
+     }
+
+     //创建Vue实例,得到 ViewModel
+     const app = new Vue({
+        el: '#app',
+        data: {
+           info:{
+               name: 'coderwhy',
+               age: 22,
+               height: 1.88
+           }
+        },
+        //2.注册一个局部组件
+        components:{
+           'my-cpn': cpn
+        }
+     });
+    </script>
+</body>
+
+</html>
