@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id ="app">
+       <!-- 3.使用组件 -->
+       <cpn1></cpn1>
+       <cpn2></cpn2>
+    </div>
+
+    <!-- 第一种：通过script标签 -->
+    <script type="text/x-template" id="myCpn">
+       <div>
+           <h2>我是组件1的标题</h2>
+           <p>我是组件1的内容，哈哈哈</p>
+       </div>
+    </script>
+
+    <!-- 第二种：通过template -->
+    <template id="cpn">
+        <div>
+           <h2>我是组件2的标题</h2>
+           <p>我是组件2的内容，嘿嘿嘿</p>
+        </div>
+    </template>
+
+
+    <script src="../js/vue.js"></script>
+    <script>
+     //1.创建组件构造器对象
+    //  const cpnC = Vue.extend()
+
+     //2.注册组件(这样注册的是全局组件，可以在多个Vue实例中使用)
+     //全局组件的语法糖写法
+      Vue.component('cpn1', {
+         template: '#myCpn'
+     });
+
+     const app = new Vue({
+        el: '#app',
+        data: {message:'你好啊!'},
+        //在这里写的就是局部组件
+        //局部组件的语法糖写法
+        components: {
+            //cpn2：使用组件时的标签名
+            cpn2:  {
+                template: '#cpn'
+            }
+        }
+     });
+
+    </script>
+</body>
+
+</html>

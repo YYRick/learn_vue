@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id ="app">
+        <my-cpn></my-cpn>
+        <my-cpn></my-cpn>
+        <my-cpn></my-cpn>
+    </div>
+    <!-- 计数器组件模板 -->
+    <template id="cpn">
+        <!-- 注意：组件模板必须先用div包裹一下，不然会报错 -->
+        <div>
+            <h2>当前计数为：{{counter}}</h2>
+            <button @click="increment">+</button>
+            <button @click="decrement">-</button>
+        </div>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+     //注册一个组件
+     Vue.component('my-cpn',{
+         template: "#cpn",
+         data(){
+             /* data是一个函数的目标为了确保
+               每一个组件实例都有属于自己的data
+               因为在这里我们每调用一次函数就会重新返回一个新的data对象   
+               如果data直接是一个对象，就会导致data被共用
+            */
+             return {
+                 counter: 0
+             }
+         },
+         methods: {
+             increment(){
+                 this.counter++;
+             },
+             decrement(){
+                 this.counter--;
+             }
+         }
+     })
+
+
+     //创建Vue实例,得到 ViewModel
+     const app = new Vue({
+        el: '#app',
+        data: {message:'你好啊!'},
+     });
+    </script>
+</body>
+
+</html>
