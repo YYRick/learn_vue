@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id ="app" v-cloak>
+        <h2>{{message}}</h2>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+     //创建Vue实例,得到 ViewModel
+     setTimeout(function(){
+        const app = new Vue({
+            el: '#app',
+            data: {message:'你好啊!'},
+        });
+     }, 1000);
+    </script>
+</body>
+
+</html>

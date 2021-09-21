@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id ="app">
+        <p>{{message}}</p>
+        <!-- 不做任何处理，写的时候是什么样子，在页面显示的就是什么样子 -->
+        <p v-pre>{{message}}</p>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+     //创建Vue实例,得到 ViewModel
+     const app = new Vue({
+        el: '#app',
+        data: {message:'你好啊!'},
+     });
+    </script>
+</body>
+
+</html>

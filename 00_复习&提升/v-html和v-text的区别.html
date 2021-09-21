@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id ="app">
+        <!-- 
+            v-html可以识别html标签
+            而v-text则不可以
+         -->
+        <p v-html='aHref'></p>
+        <p v-text='aHref'></p>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+     //创建Vue实例,得到 ViewModel
+     const app = new Vue({
+        el: '#app',
+        data: {
+            aHref: "<a href='http://www.baidu.com'>百度一下</a>"
+        },
+     });
+    </script>
+</body>
+
+</html>

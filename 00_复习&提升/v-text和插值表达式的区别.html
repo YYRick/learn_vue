@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id ="app">
+        <p>{{message}},{{counter}}</p>
+        <!-- v-text不常用，和插值表达式效果类似，但是它会覆盖后面的 -->
+        <p v-text="message">, {{counter}}</p>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+     //创建Vue实例,得到 ViewModel
+     const app = new Vue({
+        el: '#app',
+        data: {
+            message:'你好啊!',
+            counter: 555
+        },
+     });
+    </script>
+</body>
+
+</html>

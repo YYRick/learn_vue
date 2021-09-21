@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id ="app">
+        <h2>当前计数为：{{counter}}</h2>
+        <!-- 绑定点击事件 -->
+        <button @click="add">+</button>
+        <button @click="sub">-</button>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+     //创建Vue实例,得到 ViewModel
+     const app = new Vue({
+        el: '#app',
+        data: {
+           counter: 0
+        },
+        //方法写在这里
+        methods: {
+           //对象增强写法
+           add(){
+              this.counter++;
+           },
+           sub(){
+              this.counter--;
+           }
+        }
+     });
+    </script>
+</body>
+
+</html>

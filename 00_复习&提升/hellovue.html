@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!-- vue实例所控制的区域 -->
+    <div id="app">
+        <!-- {{}}：插值表达式 -->
+        <h2>{{message}}</h2>
+    </div>
+    <!-- import vue.js -->
+    <script src="../js/vue.js"></script>
+    <script>
+        //创建vue的实例对象
+        const app = new Vue({
+            //要挂载的元素，以此来确定vue实例控制的区域
+            el: "#app",
+            //定义数据
+            data: {
+              message: '你好!'
+            }
+        })
+    </script>
+</body>
+</html>
