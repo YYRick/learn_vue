@@ -11,3 +11,11 @@ var flag = true;
 if(flag){
     console.log(sum(10, 20));
 }
+
+
+//基于Node使用CommonJS导出
+module.exports = {
+    flag,
+    name,
+    age
+}

@@ -5,6 +5,14 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <!-- 
+       没有模块化的缺陷：
+         1.全局变量冲突
+         2.而且如果改动引入文件的顺序，可能造成不必要的麻烦
+     -->
+    <script src="main.js"></script>
+    <script src="aaa.js"></script>
+    <script src="bbb.js"></script>
+    <script src="mmm.js"></script>
 </body>
 </html>
