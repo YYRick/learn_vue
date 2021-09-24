@@ -1,0 +1,20 @@
+{
+  "name": "learn_vue",
+  "version": "1.0.0",
+  "description": "> coderwhy vue2.0\r - 少写笔记多敲代码\r - 做思维导图，构建知识图谱\r - 要主动学习，要有自己的理解",
+  "main": "index.js",
+  "dependencies": {
+    "webpack-cli": "^4.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitee.com:YYRick/learn_vue.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
