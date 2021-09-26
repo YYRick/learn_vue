@@ -11,7 +11,11 @@
 <script>
 
 export default {
-   name: "Home"
+   name: "Home",
+  /*  created(){
+      console.log('created');
+      document.title = '首页'
+   } */
 }
 
 </script>

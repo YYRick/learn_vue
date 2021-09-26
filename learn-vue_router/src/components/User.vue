@@ -26,7 +26,11 @@ export default {
          /* 这里的$route就是你在index.js中配置的user路由 */
          console.log(this.$route);
       }
-   }
+   },
+  /*  created(){
+      console.log('created');
+      document.title = '用户'
+   } */
 }
 
 </script>

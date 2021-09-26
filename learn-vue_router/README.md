@@ -6,3 +6,7 @@
 它会把这个组件取出来并且放到整个网页上面进行渲染
   + history.pushState() 
   + history.replaceState()：是替换之前的URL，没有返回按钮
+
+
+### vue-router
+  + 路由覆盖产生的问题：

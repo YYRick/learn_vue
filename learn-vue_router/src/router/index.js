@@ -29,6 +29,10 @@ const routes = [
     {
        path: "/home",
        component: Home,
+       //定义元数据
+       meta: {
+          title: '首页'
+       },
        /* 路由嵌套 */
        children: [
           {
@@ -47,16 +51,28 @@ const routes = [
     },
     {
        path: "/about",
-       component: About
+       component: About,
+       //定义元数据
+       meta: {
+          title: '关于'
+       }
     },
     {  
        /* 动态路由 */
        path: "/user/:userId",
-       component: User
+       component: User,
+       //定义元数据
+       meta: {
+          title: '用户'
+       }
     },
     {
        path: '/profile',
-       component: Profile
+       component: Profile,
+       //定义元数据
+       meta: {
+          title: '档案'
+       }
     }
 ]
 
@@ -69,6 +85,22 @@ const router = new VueRouter({
       改成history模式，它使用的是history中的pushState
     */
     mode: 'history'
+})
+
+/* 导航守卫：监听路由跳转 */
+/*前置守卫(钩子hook) */
+router.beforeEach((to, from, next) =>{
+   //从from跳转到to
+   document.title = to.matched[0].meta.title
+   console.log('++++++++++++++');
+   //next必须要调用，不调用会出问题
+   next();
+})
+
+//后置钩子
+//上面这两个守卫都是全局导航守卫
+router.afterEach((to, from) =>{
+   console.log('-----------');
 })
 
 //3.将router对象传入到vue实例中
