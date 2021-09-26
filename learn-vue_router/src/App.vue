@@ -9,11 +9,14 @@
     <router-link to="/home" tag="button" replace>首页</router-link>
     <router-link to="/about" tag="button" replace>关于</router-link>
     <!-- 动态绑路由 -->
-    <router-link :to="'/user/'+userid" tag="button" replace>用户界面</router-link>
-
-    <router-link to="/profile" tag="button" replace>档案</router-link>
+    <!-- <router-link :to="'/user/'+userid" tag="button" replace>用户界面</router-link> -->
+    <!-- 路由传参 -->
+<!--     <router-link :to="{path: '/profile', query:{name: 'coderwhy', age: '18', height: 1.88}}" 
+                 tag="button" replace>档案</router-link> -->
    <!--  <button @click="homeClick">首页</button>
     <button @click='aboutClick'>关于</button> -->
+    <button @click="userClick">用户</button>
+    <button @click="profileClick">档案</button>
     <router-view></router-view>
   </div>
 </template>
@@ -25,16 +28,29 @@ export default {
      return {
         userid: 'zhangsan'
      }
-  }
+  },
   /* 通过代码的方式实现路由跳转 */
-  /* methods: {
+  methods: {
     homeClick(){
       this.$router.push('/home')
     },
     aboutClick(){
       this.$router.push('/about')
+    },
+    userClick(){
+      this.$router.push('/user/'+ this.userid).catch(err => err)
+    },
+    profileClick(){
+      this.$router.push({
+         path: '/profile',
+         query: {
+           name: 'coderwhy',
+           age: 18,
+           height: 1.88
+         }
+      }).catch(err => err)
     }
-  } */
+  }
 }
 </script>
 
