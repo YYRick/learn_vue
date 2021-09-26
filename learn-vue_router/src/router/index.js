@@ -3,8 +3,17 @@
 import VueRouter from "vue-router";
 import Vue from "vue";
 
-import Home from '../components/Home.vue'
+/* import Home from '../components/Home.vue'
 import About from '../components/About.vue'
+import User from '../components/User.vue' */
+//路由懒加载
+const Home = () => import('../components/Home')
+const About = () => import('../components/About')
+const User = () => import('../components/User')
+const HomeNews = () => import('../components/HomeNews')
+const HomeMessage = () => import('../components/HomeMessage')
+const Profile = () => import('../components/Profile')
+
 
 //1.通过Vue.use(插件), 安装插件
 Vue.use(VueRouter)
@@ -19,11 +28,35 @@ const routes = [
     },
     {
        path: "/home",
-       component: Home
+       component: Home,
+       /* 路由嵌套 */
+       children: [
+          {
+             path: '',
+             redirect: 'news'
+          },
+          {
+             path: 'news',
+             component: HomeNews
+          },
+          {
+             path: 'message',
+             component: HomeMessage
+          }
+       ]
     },
     {
        path: "/about",
        component: About
+    },
+    {  
+       /* 动态路由 */
+       path: "/user/:userId",
+       component: User
+    },
+    {
+       path: '/profile',
+       component: Profile
     }
 ]
 

@@ -6,10 +6,14 @@
           + tag：指定router-link要渲染成什么标签
           + replace：改成replaceState模式
      -->
-   <!--  <router-link to="/home" tag="button" replace>首页</router-link>
-    <router-link to="/about" tag="button" replace>关于</router-link> -->
-    <button @click="homeClick">首页</button>
-    <button @click='aboutClick'>关于</button>
+    <router-link to="/home" tag="button" replace>首页</router-link>
+    <router-link to="/about" tag="button" replace>关于</router-link>
+    <!-- 动态绑路由 -->
+    <router-link :to="'/user/'+userid" tag="button" replace>用户界面</router-link>
+
+    <router-link to="/profile" tag="button" replace>档案</router-link>
+   <!--  <button @click="homeClick">首页</button>
+    <button @click='aboutClick'>关于</button> -->
     <router-view></router-view>
   </div>
 </template>
@@ -17,15 +21,20 @@
 <script>
 export default {
   name: "App",
+  data(){
+     return {
+        userid: 'zhangsan'
+     }
+  }
   /* 通过代码的方式实现路由跳转 */
-  methods: {
+  /* methods: {
     homeClick(){
       this.$router.push('/home')
     },
     aboutClick(){
       this.$router.push('/about')
     }
-  }
+  } */
 }
 </script>
 
