@@ -9,4 +9,13 @@
 
 
 ### vue-router
-  + 路由覆盖产生的问题：
+  + 路由覆盖产生的问题
+
+### keep-alive
+场景如下：我们点击首页并且查看下面的信息，然后点击了用户界面，然后点击返回首页，发现显示的并不是我们之前看到首页信息界面，这是因为每次点击切换组件时他都是重新创建/销毁新的组件；通过keep-alive包裹的组件会缓存
+
+- 复习生命周期函数
+  + 创建前后：beforecreate/created
+  + 挂载前后：beforeMount/mounted
+  + 更新前后：beforeUpdate/updated
+  + 销毁前后：beforeDestory/destroyed

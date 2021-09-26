@@ -12,10 +12,21 @@
 
 export default {
    name: "Home",
-  /*  created(){
-      console.log('created');
-      document.title = '首页'
-   } */
+   created(){
+      console.log('home created');
+   },
+   /* destroyed：销毁 */
+   destroyed(){
+       console.log('home destroyed');
+   },
+   activated(){
+       this.$router.push(this.path).catch(err => err);
+   },
+   beforeRouteLeave(to, from, next){
+       console.log(this.$route.path);
+       this.path = this.$route.path;
+       next();
+   }
 }
 
 </script>

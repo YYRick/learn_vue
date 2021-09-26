@@ -17,7 +17,9 @@
     <button @click='aboutClick'>关于</button> -->
     <button @click="userClick">用户</button>
     <button @click="profileClick">档案</button>
-    <router-view></router-view>
+    <keep-alive exclude="Profile">
+       <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 

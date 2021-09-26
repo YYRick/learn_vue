@@ -15,6 +15,13 @@ export default {
       console.log('created');
       document.title = '档案'
    } */
+   created(){
+      console.log('Profile created');
+   },
+   /* destroyed：销毁 */
+   destroyed(){
+      console.log('Profile destroyed');
+   },
 }
 
 </script>

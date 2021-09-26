@@ -92,7 +92,7 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) =>{
    //从from跳转到to
    document.title = to.matched[0].meta.title
-   console.log('++++++++++++++');
+   // console.log('++++++++++++++');
    //next必须要调用，不调用会出问题
    next();
 })
@@ -100,7 +100,7 @@ router.beforeEach((to, from, next) =>{
 //后置钩子
 //上面这两个守卫都是全局导航守卫
 router.afterEach((to, from) =>{
-   console.log('-----------');
+   // console.log('-----------');
 })
 
 //3.将router对象传入到vue实例中
