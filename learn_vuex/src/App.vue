@@ -11,6 +11,13 @@
     <h2>年龄大于二十岁的有：{{$store.getters.more20stu}}</h2>
     <h2>年龄大于二十岁的人数：{{$store.getters.more20stuLength}}个人</h2>
     <h2>{{$store.getters.moreAgeStu(24)}}</h2>
+    <!--  -->
+
+    <h2>---------------App内容：mutations相关信息---------------</h2>
+    <button @click="addCount(5)">+5</button>
+    <button @click="addCount(10)">+10</button>
+    <button @click="addStudent">添加学生</button>
+
     <!-- 接收传递的数据 -->
     <hello-vuex :counter="counter"></hello-vuex>
   </div>
@@ -40,6 +47,13 @@
        },
        subtraction(){
          this.$store.commit('decrement');
+       },
+       addCount(count){
+         this.$store.commit('incrementCount', count)
+       },
+       addStudent(){
+         const stu = {id: 114, name: 'alan', age: 35}
+         this.$store.commit('addStudent', stu)
        }
      }
    }
