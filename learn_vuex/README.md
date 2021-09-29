@@ -1,19 +1,20 @@
-# learn_vuex
+### learn_vuex
+> 负责管理公共数据，大管家的角色
 
-## Project setup
-```
-yarn install
-```
+- 废话少说，放码过来
+- 空谈误国，多敲为益
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+### 数据响应式所需要遵循的规则
+> 放在state中的都是响应式的数据
+- 1、需要提前先在state中定义好
+- 2、或者通过我们之前讲的可以响应式的数组方法来添加到state中
 
-### Compiles and minifies for production
+- 假如我们不是要修改state中已有的属性而是给它添加一个新属性呢？
+```js
+    undateInfo(state){
+      //  state.info.name = 'YYRick';
+      //假如我们不是要修改已有的属性而是添加呢？
+      state.info['address'] = '北京'
+    }
 ```
-yarn build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- 再次强调：响应式指的是数据改变，相应的界面也就跟着改变

@@ -14,7 +14,13 @@ export default new Vuex.Store({
       {id: 111, name: 'kobe', age: 24},
       {id: 112, name: 'james', age: 30},
       {id: 113, name: 'curry', age: 10}
-    ]
+    ],
+    /* 验证数据响应式所遵循的规则 */
+    info: {
+      name: 'coderwhy',
+      age: 22,
+      height: 1.88
+    }
   },
   //同步操作至少要经过mutations进行修改
   mutations: {
@@ -30,10 +36,21 @@ export default new Vuex.Store({
        state.counter += count
     } */
     incrementCount(state, payload){
-      state.counter += payload.count
+       state.counter += payload.count
     },
     addStudent(state, stu){
        state.students.push(stu)
+    },
+    undateInfo(state){
+      //  state.info.name = 'YYRick';
+      //假如我们不是要修改已有的属性而是添加呢？
+      // state.info['address'] = '北京',
+      //Vue.set：响应式的增加数据
+      // Vue.set(state.info, 'address', 'YYRick');
+      // delete state.info.age;
+      //Vue.delete：响应式的删除数据
+      Vue.delete(state.info, 'age')
+      console.log(state.info);
     }
   },
   //异步操作要经过actions修改
