@@ -49,7 +49,13 @@
          this.$store.commit('decrement');
        },
        addCount(count){
-         this.$store.commit('incrementCount', count)
+         //这是一种mutations中的普通的提交风格
+         /* this.$store.commit('incrementCount', count) */
+         //使用对象方式的提交风格
+         this.$store.commit({
+            type: 'incrementCount',
+            count
+         })
        },
        addStudent(){
          const stu = {id: 114, name: 'alan', age: 35}
