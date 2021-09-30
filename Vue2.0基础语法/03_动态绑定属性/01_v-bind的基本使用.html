@@ -6,13 +6,14 @@
 </head>
 
 <body>
-    <div id ="app">
+    <div id ="app"  >
         <!-- 错误的写法：这里使用插值表达式是无效的 -->
         <!-- <img src="{{imgURL}}" alt=""> -->
         <!-- v-bind动态绑定：会把imgURL当成一个变量而不是之前的字符串 -->
-        <img v-bind:src="imgURL" alt="">
+        <img v-bind:src="item.src" alt="" v-for="item in imgURL"> 
         <!-- v-bind语法糖 -->
         <a :href="aHref">百度一下</a>
+        <!-- <p>{{item}}</p> -->
     </div>
 
     <script src="../js/vue.js"></script>
@@ -22,7 +23,24 @@
         el: '#app',
         data: { 
             message:'你好啊!',
-            imgURL: "https://img0.baidu.com/it/u=271824295,2501038368&fm=26&fmt=auto",
+            imgURL: [
+                {
+                id: 1,
+                "src": "https://img0.baidu.com/it/u=271824295,2501038368&fm=26&fmt=auto"
+               },
+                {
+                id: 2,
+                "src": "https://img0.baidu.com/it/u=271824295,2501038368&fm=26&fmt=auto"
+               },
+                {
+                id: 3,
+                "src": "https://img0.baidu.com/it/u=271824295,2501038368&fm=26&fmt=auto"
+               },
+                {
+                id: 4,
+                "src": "https://img0.baidu.com/it/u=271824295,2501038368&fm=26&fmt=auto"
+               },
+        ],
             aHref: 'http://www.baidu.com'
         },
      });
