@@ -41,20 +41,39 @@ export default new Vuex.Store({
     addStudent(state, stu){
        state.students.push(stu)
     },
-    undateInfo(state){
-      //  state.info.name = 'YYRick';
+    updateInfo(state){
+       state.info.name = 'YYRick';
+
+
+      //使用setTimeout模拟异步操作
+      //不要在mutations进行异步操作，devtool监测不到
+      /* setTimeout(()=>{
+        state.info.name = 'YYRick';
+      }, 1000) */
+
       //假如我们不是要修改已有的属性而是添加呢？
       // state.info['address'] = '北京',
       //Vue.set：响应式的增加数据
       // Vue.set(state.info, 'address', 'YYRick');
       // delete state.info.age;
       //Vue.delete：响应式的删除数据
-      Vue.delete(state.info, 'age')
-      console.log(state.info);
+      // Vue.delete(state.info, 'age')
+      // console.log(state.info);
     }
   },
   //异步操作要经过actions修改
   actions: {
+     //异步操作写在这里面
+     //默认参数是context
+     aUpdateInfo(context, payload){
+       return new Promise((resolve, reject) =>{
+        setTimeout(()=>{
+          context.commit('updateInfo');
+          console.log(payload);
+          resolve('哈哈哈哈');
+        }, 1000)
+       })
+     }
   },
   //类似于计算属性
   getters:{

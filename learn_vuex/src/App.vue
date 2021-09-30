@@ -2,7 +2,7 @@
   <div id="app">
     <h2>-----------App内容：info对象的内容是否是响应式的------------</h2>
     <h2>{{$store.state.info}}</h2>
-    <button @click="undateInfo">修改名字</button>
+    <button @click="updateInfo">修改名字</button>
 
     <h2>-------------APP内容--------------</h2>
     <h2>{{message}}</h2>
@@ -66,8 +66,13 @@
          const stu = {id: 114, name: 'alan', age: 35}
          this.$store.commit('addStudent', stu)
        },
-       undateInfo(){
-         this.$store.commit('undateInfo');
+       updateInfo(){
+         this.$store
+         .dispatch('aUpdateInfo', "我是携带的信息")
+         .then(res => {
+           console.log('里面完成了提交');
+           console.log(res);
+         });
        }
      }
    }
